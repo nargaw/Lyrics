@@ -16,9 +16,44 @@ export default function Lyrics()
         getLyrics()
     }, [])
 
-    console.log(lyrics)
+    // if(lyrics)
+    // {
+    //     console.log(lyrics.lyrics)
+    // }
+    const [text, setText] = useState([])
+    const testText = 'test'
+    const CreateText = () => {
+        for (let i =0; i < testText.length; i++)
+        {
+            console.log(testText[i])
+            return <>
+                <RigidBody>
+                    <Text3D
+                        font="./Roboto.json"
+                    >
+                    test
+                    </Text3D>
+                </RigidBody>
+            </>
+        }
+    }
+
+    setText(
+        <CreateText />
+    )
+    
 
     return <>
-
+        {[...text]}
+        {/* {[...Array(10)].map((value, index) =>
+            <RigidBody>
+            <Text3D
+                font="./Roboto.json"
+            >
+                {}
+            </Text3D>
+        </RigidBody>
+        )} */}
+        {/* {text()} */}
     </>
 }
