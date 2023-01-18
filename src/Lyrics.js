@@ -5,7 +5,6 @@ import { Text3D, Center } from "@react-three/drei"
 export default function Lyrics()
 {
     const [lyrics, setLyrics] = useState([])
-
     const getLyrics = async () => {
         const response = await fetch('./lephilosophelyrics.json')
         const result = await response.json()
@@ -16,44 +15,39 @@ export default function Lyrics()
         getLyrics()
     }, [])
 
-    // if(lyrics)
-    // {
-    //     console.log(lyrics.lyrics)
-    // }
-    const [text, setText] = useState([])
-    const testText = 'test'
-    const CreateText = () => {
-        for (let i =0; i < testText.length; i++)
-        {
-            console.log(testText[i])
-            return <>
-                <RigidBody>
-                    <Text3D
-                        font="./Roboto.json"
-                    >
-                    test
-                    </Text3D>
-                </RigidBody>
-            </>
-        }
+    const textRef = useRef()
+    console.log(textRef.current)
+    console.log(lyrics)
+    if(lyrics.lyrics){
+        const firstLine = lyrics.lyrics[0].split(" ")
+        console.log(firstLine)
     }
-
-    setText(
-        <CreateText />
-    )
     
-
+    const testWord = 'Word'
+    const testArray = ['this', 'is', 'a', 'test', 'text']
+    const testText = 'This is a test text'
+    
     return <>
-        {[...text]}
-        {/* {[...Array(10)].map((value, index) =>
-            <RigidBody>
-            <Text3D
-                font="./Roboto.json"
+        {[...Array(testArray.length)].map((value,index) =>
+            <RigidBody
+                
+                key={index}
+                position={[
+                    index - 4,
+                    5,
+                    0
+                ]}
             >
-                {}
-            </Text3D>
-        </RigidBody>
-        )} */}
-        {/* {text()} */}
+                <Center>
+                    <Text3D
+                        ref={textRef} 
+                        font={'./Roboto.json'}
+                        size={0.75}
+                    >
+                            {testArray[index]}
+                    </Text3D>
+                </Center>
+            </RigidBody>
+        )}
     </>
 }
