@@ -22,21 +22,23 @@ export default function Lyrics()
 
     let line = ''
     if(lyrics.lyrics){
-        line = lyrics.lyrics[0].split(" ")
+        line = lyrics.lyrics[0].split("")
     }
 
-    const textRef = useRef()
-    console.log(textRef.current)
+    
 
     const DisplayLyrics = () => 
     {
+        const textRef = useRef()
+        
+
         return <>
             {[...Array(line.length)].map((value,index) =>
                 <RigidBody
-                   
+                    type="fixed"
                     key={index}
                     position={[
-                        index - 2.5,
+                        (index / 5) - 5.5 ,
                         5,
                         0
                     ]}
@@ -46,10 +48,12 @@ export default function Lyrics()
                             name={index}
                             ref={textRef}
                             key={index} 
-                            font={'./Roboto.json'}
-                            size={0.75}
+                            font={'./MajorMonoRegular.json'}
+                            size={0.25}
+                            letterSpacing = {0.001}
                         >
                                 {line[index]}
+                                
                         </Text3D>
                     </Center>
                 </RigidBody>

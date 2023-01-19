@@ -9,7 +9,7 @@ export default function Experience()
         <color args={['#191919']} attach="background" />
         <OrbitControls makeDefault/>
         <Physics>
-            <Debug />
+            {/* <Debug /> */}
             <Platform />
             <Lyrics />
         </Physics>
