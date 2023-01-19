@@ -5,7 +5,7 @@ import { useRef } from 'react'
 export default function Platform()
 {
 
-    const platformGeometry = new THREE.BoxGeometry(12, 12, 0.5)
+    const platformGeometry = new THREE.BoxGeometry(20, 20, 0.5)
     const platformMaterial = new THREE.MeshStandardMaterial({
         color: '#444444'
     })

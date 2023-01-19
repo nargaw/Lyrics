@@ -22,7 +22,7 @@ export default function Lyrics()
 
     let line = ''
     if(lyrics.lyrics){
-        line = lyrics.lyrics[0].split("")
+        line = lyrics.lyrics[0].toLowerCase().split("")
     }
 
     
@@ -35,10 +35,10 @@ export default function Lyrics()
         return <>
             {[...Array(line.length)].map((value,index) =>
                 <RigidBody
-                    type="fixed"
+                    type="dynamic"
                     key={index}
                     position={[
-                        (index / 5) - 5.5 ,
+                        (index / 4) - 5.75 ,
                         5,
                         0
                     ]}
@@ -50,7 +50,8 @@ export default function Lyrics()
                             key={index} 
                             font={'./MajorMonoRegular.json'}
                             size={0.25}
-                            letterSpacing = {0.001}
+                            letterSpacing = {0.1}
+                            scale={[1, 1, 0.5]}
                         >
                                 {line[index]}
                                 
