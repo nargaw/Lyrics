@@ -6,6 +6,13 @@ export default create((set, get) =>
         //status of lyrics
         current: 'null',
 
+        songTimer: 0,
+
+        //get song time
+        getSongTime: () => {
+            return get().songTimer
+        },
+
         //change status
         changeStatus: () => 
         {
@@ -15,6 +22,11 @@ export default create((set, get) =>
                     current: 'loaded'
                 }))
             }
+        },
+
+        startSong: () =>
+        {
+            set((state) => ({songTimer: Date.now()}))
         }
     }
 })

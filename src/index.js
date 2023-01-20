@@ -4,6 +4,7 @@ import { StrictMode } from 'react'
 import { Leva } from 'leva'
 import { Canvas } from '@react-three/fiber'
 import Experience from './Experience.js'
+import Interface from './Interface'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -16,10 +17,11 @@ root.render(
                 fov: 45,
                 near: 0.01,
                 far: 200,
-                position: [ 0, 5, 7 ]
+                position: [ 0, 15, 35 ]
             } }
         >
             <Experience />
         </Canvas>
+        <Interface />
     </StrictMode>
 )

@@ -5,7 +5,7 @@ import { useRef } from 'react'
 export default function Platform()
 {
 
-    const platformGeometry = new THREE.BoxGeometry(20, 20, 0.5)
+    const platformGeometry = new THREE.BoxGeometry(100, 20, 0.5)
     const platformMaterial = new THREE.MeshStandardMaterial({
         color: '#444444'
     })
@@ -17,7 +17,7 @@ export default function Platform()
             type="kinematicPosition"
             colliders="cuboid"
             restitution={0.2}
-            friction={0.4}
+            friction={1}
         >
             <mesh 
                 geometry={platformGeometry}
