@@ -4,29 +4,45 @@ export default create((set, get) =>
 {
     return {
         //status of lyrics
-        current: 'null',
+        loading: 'null',
 
-        songTimer: 0,
+        songStatus: 'start',
+
+        songStartTime: 0,
+
+        lyrics: '',
 
         //get song time
         getSongTime: () => {
             return get().songTimer
         },
 
+        //get lyrics
+        getLyrics: () => {
+            return get().lyrics
+        },
+
         //change status
         changeStatus: () => 
         {
-            if(get().current === 'null')
+            if(get().loading === 'null')
             {
                 set((state) => ({
-                    current: 'loaded'
+                    loading: 'loaded'
                 }))
             }
         },
 
         startSong: () =>
         {
-            set((state) => ({songTimer: Date.now()}))
+            set((state) => ({songStatus: 'playing'}))
+            set((state) => ({songStartTime: Date.now()}))
+            
+        },
+
+        setLyrics: (input) =>
+        {
+            set((state) => ({lyrics: input }))
         }
     }
 })
