@@ -14,6 +14,8 @@ export default function Lyrics()
     })
 
     const lyrics = useLyrics(state => state.getLyrics())
+    const time = useLyrics(state => state.timer)
+    // console.log(time)
     const DisplayLyrics = ({num}) => 
     {
         return <>
@@ -22,13 +24,13 @@ export default function Lyrics()
                     type='kinematic'
                     key={index}
                     position={[
-                        (index / 2) - 10 ,
+                        (index / 2) - 15 ,
                         15 + num,
                         0
                     ]}
                     restitution={0.8}
                     friction={0.5}
-                    mass={0}
+                    mass={0.0}
                 >
                     <Center>
                         <Text3D
@@ -50,10 +52,10 @@ export default function Lyrics()
     }
     
     return <>
-        {lyrics !== '' && [...Array(5)].map((value, index) => 
+        {time > 0 && time < 20 && [...Array(5)].map((value, index) => 
             <DisplayLyrics num={index} key={index} />
         )}
-        {lyrics !== '' && [...Array(5)].map((value, index) => 
+        {time >= 20 && time < 40 && [...Array(5)].map((value, index) => 
             <DisplayLyrics num={index + 5} key={index + 5}/>
         )}
     </>

@@ -12,9 +12,11 @@ export default create((set, get) =>
 
         lyrics: '',
 
+        timer: 0,
+
         //get song time
         getSongTime: () => {
-            return get().songTimer
+            return get().songStartTime
         },
 
         //get lyrics
@@ -37,12 +39,18 @@ export default create((set, get) =>
         {
             set((state) => ({songStatus: 'playing'}))
             set((state) => ({songStartTime: Date.now()}))
-            
+            return get().songStartTime
         },
 
         setLyrics: (input) =>
         {
             set((state) => ({lyrics: input }))
+        },
+
+        setTimer: (input) =>
+        {
+            set((state) => ({timer: input}))
         }
+
     }
 })

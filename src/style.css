@@ -38,6 +38,23 @@ body,
     cursor: pointer;
 }
 
+#Progress_Status {
+    width: 40vw;
+    background-color: rgb(88, 87, 87);
+    border-radius: 50px;
+}
+
+.progress
+{
+    width: 1%;
+    height: 2px;
+    background-color: #bdbdbd;
+    text-align: center;
+    line-height: 32px;
+    /* color: whitesmoke; */
+    border-radius: 50px;
+}
+
 .off{
     display: none;
 }
