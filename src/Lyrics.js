@@ -3,9 +3,7 @@ import { Text3D, Center } from "@react-three/drei"
 import useLyrics from "./stores/useLyrics.js"
 import { useFrame, addEffect } from "@react-three/fiber"
 import * as THREE from 'three'
-import { useEffect } from "react"
-
-import { useRef, forwardRef } from "react"
+import { useRef, forwardRef, useEffect } from "react"
 
 export default function Lyrics()
 {
@@ -15,25 +13,24 @@ export default function Lyrics()
         state.camera.lookAt(lyricsPosition)
     })
 
+    const timeRef = useRef()
+
     const lyrics = useLyrics(state => state.getLyrics())
     // const time = useLyrics(state => state.timer)
     const songStatus = useLyrics(state => state.songStatus)
     console.log(songStatus)
     const getSongTime = useLyrics(state => state.getSongTime)
 
-    
-
-    const timer = 0
-
-    const time = useEffect(() =>
+    useEffect(() =>
     {
         const unsubscribeEffect = addEffect(() =>
         {   
             // console.log('here counting')
-
+            let timer = 0
+            let elapsedTime = 0
             // // const element = document.querySelector('.progress')
             // // console.log(element.style.width)
-            let elapsedTime = 0
+            
             // // element.style.width = ((elapsedTime/241) * 100) + '%'
             // const state = useLyrics.getState()
             const startTime = getSongTime()
@@ -45,7 +42,11 @@ export default function Lyrics()
 
             elapsedTime = Date.now() - startTime
             elapsedTime /= 1000
-            console.log(elapsedTime)
+            // console.log(elapsedTime)
+            timer = elapsedTime
+            timeRef.current = elapsedTime
+            // console.log(timeRef.current)
+            // console.log(timer)
             // // if(element.style.width && elapsedTime <= 241)
             // // {
             // //     console.log((elapsedTime/241) * 100)
@@ -73,7 +74,7 @@ export default function Lyrics()
     // }
 
 
-    // console.log(time)
+    console.log(timeRef.current)
     const DisplayLyrics = ({num}) => 
     {
         return <>
@@ -110,11 +111,11 @@ export default function Lyrics()
     }
     
     return <>
-        {/* {[...Array(5)].map((value, index) => 
+        {songStatus === "playing" && timeRef.current < 20 && [...Array(5)].map((value, index) => 
             <DisplayLyrics num={index} key={index} />
         )}
-        {[...Array(5)].map((value, index) => 
+        {songStatus === "playing" && timeRef.current > 20 && timeRef.current < 50 && [...Array(5)].map((value, index) => 
             <DisplayLyrics num={index + 5} key={index + 5}/>
-        )} */}
+        )}
     </>
 }
