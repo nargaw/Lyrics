@@ -18,28 +18,34 @@ export default function Lyrics()
     const lyrics = useLyrics(state => state.getLyrics())
     // const time = useLyrics(state => state.timer)
     const songStatus = useLyrics(state => state.songStatus)
+    console.log(songStatus)
+    const getSongTime = useLyrics(state => state.getSongTime)
 
+    
 
-
+    const timer = 0
 
     const time = useEffect(() =>
     {
         const unsubscribeEffect = addEffect(() =>
         {   
+            // console.log('here counting')
+
             // // const element = document.querySelector('.progress')
             // // console.log(element.style.width)
-            // let elapsedTime = 0
+            let elapsedTime = 0
             // // element.style.width = ((elapsedTime/241) * 100) + '%'
             // const state = useLyrics.getState()
-            // const startTime = getSongTime()
-            // // console.log(startTime)
-            // if(songStatus === "playing")
-            // {
-            //     elapsedTime = 0   
-            // }
+            const startTime = getSongTime()
+            // console.log(startTime)
+            if(songStatus === "start")
+            {
+                elapsedTime = 0   
+            }
 
-            // elapsedTime = Date.now() - startTime
-            // elapsedTime /= 1000
+            elapsedTime = Date.now() - startTime
+            elapsedTime /= 1000
+            console.log(elapsedTime)
             // // if(element.style.width && elapsedTime <= 241)
             // // {
             // //     console.log((elapsedTime/241) * 100)
@@ -60,6 +66,11 @@ export default function Lyrics()
             unsubscribeEffect()
         }
     }, [])
+
+    // if(songStatus !== 'start')
+    // {
+    //     time()
+    // }
 
 
     // console.log(time)
