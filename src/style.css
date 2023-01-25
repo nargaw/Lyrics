@@ -19,6 +19,7 @@ body,
     height: 100%;
     pointer-events: none;
     font-family: 'Major Mono Display', monospace;
+    color: #ffffff;
 }
 
 .start

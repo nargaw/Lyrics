@@ -54,7 +54,7 @@ export default function Interface()
                 // element.style.width = ((elapsedTime/241) * 100) + '%'
                 // console.log(time.current)
                 progress.current.style.width = ((elapsedTime/241) * 100) + '%'
-                // setTimer(elapsedTime) 
+                setTimer(elapsedTime) 
             }   
         })
 

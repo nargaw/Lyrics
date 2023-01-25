@@ -16,57 +16,58 @@ export default function Lyrics()
     const timeRef = useRef()
 
     const lyrics = useLyrics(state => state.getLyrics())
-    // const time = useLyrics(state => state.timer)
+    const getTime = useLyrics(state => state.timer)
+    console.log(getTime)
     const songStatus = useLyrics(state => state.songStatus)
-    console.log(songStatus)
+    // console.log(songStatus)
     const getSongTime = useLyrics(state => state.getSongTime)
 
-    useEffect(() =>
-    {
-        const unsubscribeEffect = addEffect(() =>
-        {   
-            // console.log('here counting')
-            let timer = 0
-            let elapsedTime = 0
-            // // const element = document.querySelector('.progress')
-            // // console.log(element.style.width)
+    // useEffect(() =>
+    // {
+    //     const unsubscribeEffect = addEffect(() =>
+    //     {   
+    //         // console.log('here counting')
+    //         let timer = 0
+    //         let elapsedTime = 0
+    //         // // const element = document.querySelector('.progress')
+    //         // // console.log(element.style.width)
             
-            // // element.style.width = ((elapsedTime/241) * 100) + '%'
-            // const state = useLyrics.getState()
-            const startTime = getSongTime()
-            // console.log(startTime)
-            if(songStatus === "start")
-            {
-                elapsedTime = 0   
-            }
+    //         // // element.style.width = ((elapsedTime/241) * 100) + '%'
+    //         // const state = useLyrics.getState()
+    //         const startTime = getSongTime()
+    //         // console.log(startTime)
+    //         if(songStatus === "start")
+    //         {
+    //             elapsedTime = 0   
+    //         }
 
-            elapsedTime = Date.now() - startTime
-            elapsedTime /= 1000
-            // console.log(elapsedTime)
-            timer = elapsedTime
-            timeRef.current = elapsedTime
-            // console.log(timeRef.current)
-            // console.log(timer)
-            // // if(element.style.width && elapsedTime <= 241)
-            // // {
-            // //     console.log((elapsedTime/241) * 100)
-            // //     element.style.width = ((elapsedTime/241) * 100) + '%'
-            // // }
-            // // console.log(songStatus)
-            // if(time.current && elapsedTime > 0 && elapsedTime <= 242){
-            //     time.current.textContent = timeDisplay(elapsedTime)
-            //     // element.style.width = ((elapsedTime/241) * 100) + '%'
-            //     // console.log(time.current)
-            //     progress.current.style.width = ((elapsedTime/241) * 100) + '%'
-            //     // setTimer(elapsedTime) 
-            // }   
-        })
+    //         elapsedTime = Date.now() - startTime
+    //         elapsedTime /= 1000
+    //         // console.log(elapsedTime)
+    //         timer = elapsedTime
+    //         timeRef.current = elapsedTime
+    //         // console.log(timeRef.current)
+    //         // console.log(timer)
+    //         // // if(element.style.width && elapsedTime <= 241)
+    //         // // {
+    //         // //     console.log((elapsedTime/241) * 100)
+    //         // //     element.style.width = ((elapsedTime/241) * 100) + '%'
+    //         // // }
+    //         // // console.log(songStatus)
+    //         // if(time.current && elapsedTime > 0 && elapsedTime <= 242){
+    //         //     time.current.textContent = timeDisplay(elapsedTime)
+    //         //     // element.style.width = ((elapsedTime/241) * 100) + '%'
+    //         //     // console.log(time.current)
+    //         //     progress.current.style.width = ((elapsedTime/241) * 100) + '%'
+    //         //     // setTimer(elapsedTime) 
+    //         // }   
+    //     })
 
-        return () =>
-        {
-            unsubscribeEffect()
-        }
-    }, [])
+    //     return () =>
+    //     {
+    //         unsubscribeEffect()
+    //     }
+    // }, [])
 
     // if(songStatus !== 'start')
     // {
@@ -74,10 +75,11 @@ export default function Lyrics()
     // }
 
 
-    console.log(timeRef.current)
-    const DisplayLyrics = ({num}) => 
+    // console.log(timeRef.current)
+    const DisplayLyrics = ({num, time}) => 
     {
         return <>
+            {/* {console.log(time)} */}
             {[...Array(lyrics.lyrics[num].length)].map((value,index) =>
                 <RigidBody
                     type='kinematic'
@@ -111,11 +113,11 @@ export default function Lyrics()
     }
     
     return <>
-        {songStatus === "playing" && timeRef.current < 20 && [...Array(5)].map((value, index) => 
-            <DisplayLyrics num={index} key={index} />
+        {[...Array(5)].map((value, index) => 
+            getTime > 0 && getTime < 20 && <DisplayLyrics num={index} key={index} time={timeRef.current} />
         )}
-        {songStatus === "playing" && timeRef.current > 20 && timeRef.current < 50 && [...Array(5)].map((value, index) => 
-            <DisplayLyrics num={index + 5} key={index + 5}/>
+        {[...Array(5)].map((value, index) => 
+            getTime > 20 && getTime < 50 && <DisplayLyrics num={index + 5} key={index + 5} time={timeRef.current}/>
         )}
     </>
 }
