@@ -22,60 +22,28 @@ export default function Lyrics()
     // console.log(songStatus)
     const getSongTime = useLyrics(state => state.getSongTime)
 
-    // useEffect(() =>
-    // {
-    //     const unsubscribeEffect = addEffect(() =>
-    //     {   
-    //         // console.log('here counting')
-    //         let timer = 0
-    //         let elapsedTime = 0
-    //         // // const element = document.querySelector('.progress')
-    //         // // console.log(element.style.width)
-            
-    //         // // element.style.width = ((elapsedTime/241) * 100) + '%'
-    //         // const state = useLyrics.getState()
-    //         const startTime = getSongTime()
-    //         // console.log(startTime)
-    //         if(songStatus === "start")
-    //         {
-    //             elapsedTime = 0   
-    //         }
+    useEffect(() =>
+    {
+        const unsubscribeEffect = addEffect(() =>
+        {   
+            let timer = 0
+            let elapsedTime = 0
+            const startTime = getSongTime()
+            if(songStatus === "start")
+            {
+                elapsedTime = 0   
+            }
+            elapsedTime = Date.now() - startTime
+            elapsedTime /= 1000
+            timeRef.current = elapsedTime 
+        })
 
-    //         elapsedTime = Date.now() - startTime
-    //         elapsedTime /= 1000
-    //         // console.log(elapsedTime)
-    //         timer = elapsedTime
-    //         timeRef.current = elapsedTime
-    //         // console.log(timeRef.current)
-    //         // console.log(timer)
-    //         // // if(element.style.width && elapsedTime <= 241)
-    //         // // {
-    //         // //     console.log((elapsedTime/241) * 100)
-    //         // //     element.style.width = ((elapsedTime/241) * 100) + '%'
-    //         // // }
-    //         // // console.log(songStatus)
-    //         // if(time.current && elapsedTime > 0 && elapsedTime <= 242){
-    //         //     time.current.textContent = timeDisplay(elapsedTime)
-    //         //     // element.style.width = ((elapsedTime/241) * 100) + '%'
-    //         //     // console.log(time.current)
-    //         //     progress.current.style.width = ((elapsedTime/241) * 100) + '%'
-    //         //     // setTimer(elapsedTime) 
-    //         // }   
-    //     })
+        return () =>
+        {
+            unsubscribeEffect()
+        }
+    }, [])
 
-    //     return () =>
-    //     {
-    //         unsubscribeEffect()
-    //     }
-    // }, [])
-
-    // if(songStatus !== 'start')
-    // {
-    //     time()
-    // }
-
-
-    // console.log(timeRef.current)
     const DisplayLyrics = ({num, time}) => 
     {
         return <>
@@ -113,11 +81,34 @@ export default function Lyrics()
     }
     
     return <>
-        {[...Array(5)].map((value, index) => 
-            getTime > 0 && getTime < 20 && <DisplayLyrics num={index} key={index} time={timeRef.current} />
+        {getTime > 0 && getTime <= 34 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index} time={timeRef.current} />
         )}
-        {[...Array(5)].map((value, index) => 
-            getTime > 20 && getTime < 50 && <DisplayLyrics num={index + 5} key={index + 5} time={timeRef.current}/>
+        {getTime > 34 && getTime <= 53 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + 5} key={index + 5} time={timeRef.current} />
         )}
+        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index + 10} time={timeRef.current} />
+        )} */}
+        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index + 15} time={timeRef.current} />
+        )} */}
+        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index + 20} time={timeRef.current} />
+        )} */}
+        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index + 25} time={timeRef.current} />
+        )} */}
+        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index + 30} time={timeRef.current} />
+        )} */}
+        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index + 35} time={timeRef.current} />
+        )} */}
+        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index + 40} time={timeRef.current} />
+        )} */}
+        
+        
     </>
 }
