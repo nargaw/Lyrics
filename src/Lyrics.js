@@ -25,6 +25,32 @@ export default function Lyrics()
     const stage1active = useLyrics(state => state.stage1active)
     const stage2 = useLyrics(state => state.stage2)
     const stage2active = useLyrics(state => state.stage2active)
+    const stage3 = useLyrics(state => state.stage3)
+    const stage3active = useLyrics(state => state.stage3active)
+    const stage4 = useLyrics(state => state.stage4)
+    const stage4active = useLyrics(state => state.stage4active)
+    const stage5 = useLyrics(state => state.stage5)
+    const stage5active = useLyrics(state => state.stage5active)
+    const stage6 = useLyrics(state => state.stage6)
+    const stage6active = useLyrics(state => state.stage6active)
+    const stage7 = useLyrics(state => state.stage7)
+    const stage7active = useLyrics(state => state.stage7active)
+    const stage8 = useLyrics(state => state.stage8)
+    const stage8active = useLyrics(state => state.stage8active)
+    const stage9 = useLyrics(state => state.stage9)
+    const stage9active = useLyrics(state => state.stage9active)
+    const stage10 = useLyrics(state => state.stage10)
+    const stage10active = useLyrics(state => state.stage10active)
+    const stage11 = useLyrics(state => state.stage11)
+    const stage11active = useLyrics(state => state.stage11active)
+    const stage12 = useLyrics(state => state.stage12)
+    const stage12active = useLyrics(state => state.stage12active)
+    const stage13 = useLyrics(state => state.stage13)
+    const stage13active = useLyrics(state => state.stage13active)
+    const stage14 = useLyrics(state => state.stage14)
+    const stage14active = useLyrics(state => state.stage14active)
+    const stage15 = useLyrics(state => state.stage15)
+    const stage15active = useLyrics(state => state.stage15active)
 
     useEffect(() =>
     {
@@ -48,7 +74,7 @@ export default function Lyrics()
         }
     }, [])
 
-    const DisplayLyrics = ({num, mass}) => 
+    const DisplayLyrics = ({num, pos, mass}) => 
     {
         return <>
             {/* {console.log(time)} */}
@@ -58,7 +84,7 @@ export default function Lyrics()
                     key={index}
                     position={[
                         (index / 2) - 15 ,
-                        15 + num,
+                        15 + pos,
                         0
                     ]}
                     restitution={0.8}
@@ -87,10 +113,49 @@ export default function Lyrics()
     return <>
         {/* {console.log(stage1active)} */}
         {stage1 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index} mass={stage1active ? 0.1 : 0.0}/>
+             <DisplayLyrics num={index + (5 * 0)} pos={index} key={index} mass={stage1active ? 0.1 : 0.0}/>
         )}
         {stage2 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + 5} key={index + 5} mass={stage2active ? 0.1 : 0.0} />
-        )}    
+             <DisplayLyrics num={index + (5 * 1)} pos={index} key={index + 5} mass={stage2active ? 0.1 : 0.0} />
+        )}
+        {stage3 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 2)} pos={index} key={index + 5} mass={stage3active ? 0.1 : 0.0} />
+        )}  
+        {stage4 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 3)} pos={index} key={index + 5} mass={stage4active ? 0.1 : 0.0} />
+        )}  
+        {stage5 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 4)} pos={index} key={index + 5} mass={stage5active ? 0.1 : 0.0} />
+        )}  
+        {stage6 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 5)} pos={index} key={index + 5} mass={stage6active ? 0.1 : 0.0} />
+        )}  
+        {stage7 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 6)} pos={index} key={index + 5} mass={stage7active ? 0.1 : 0.0} />
+        )}  
+        {stage8 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 7)} key={index + 5} pos={index} mass={stage8active ? 0.1 : 0.0} />
+        )}  
+        {stage9 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 8)} key={index + 5} pos={index} mass={stage9active ? 0.1 : 0.0} />
+        )}  
+        {stage10 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 9)} key={index + 5} pos={index} mass={stage10active ? 0.1 : 0.0} />
+        )}  
+        {stage11 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 10)} key={index + 5} pos={index} mass={stage11active ? 0.1 : 0.0} />
+        )}  
+        {stage12 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 11)} key={index + 5} pos={index} mass={stage12active ? 0.1 : 0.0} />
+        )}
+        {stage13 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 12)} key={index + 5} pos={index} mass={stage13active ? 0.1 : 0.0} />
+        )}  
+        {stage14 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 13)} key={index + 5} pos={index} mass={stage14active ? 0.1 : 0.0} />
+        )}  
+        {stage15 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 14)} key={index + 5} pos={index} mass={stage15active ? 0.1 : 0.0} />
+        )}        
     </>
 }
