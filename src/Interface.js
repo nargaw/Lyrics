@@ -12,6 +12,9 @@ export default function Interface()
     const getSongTime = useLyrics(state => state.getSongTime)
     const startSong = useLyrics(state => state.startSong)
     const setTimer = useLyrics(state => state.setTimer)
+    const setStage1 = useLyrics(state => state.setStage1)
+    const activateStage1 = useLyrics(state => state.activateStage1)
+    const deleteStage1 = useLyrics(state => state.deleteStage1)
 
     const timeDisplay = (e) => 
     {
@@ -38,7 +41,20 @@ export default function Interface()
             if(time.current && elapsedTime > 0 && elapsedTime <= 242){
                 time.current.textContent = timeDisplay(elapsedTime)
                 progress.current.style.width = ((elapsedTime/241) * 100) + '%'
-                setTimer(Math.round(elapsedTime/2) * 2) 
+                // setTimer(Math.round(elapsedTime/2) * 4)
+                // console.log(elapsedTime)
+                if(elapsedTime > 0 && elapsedTime < 53)
+                {
+                    setStage1()
+                }
+                if(elapsedTime > 34)
+                {
+                    activateStage1()
+                }
+                if(elapsedTime >= 53)
+                {
+                    deleteStage1()
+                } 
             }   
         })
 

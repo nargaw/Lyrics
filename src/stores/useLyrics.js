@@ -71,6 +71,20 @@ export default create((set, get) =>
             if(get().timer > 73){
                 set((state) => ({stage2: false}))
             }
+        },
+
+        setStage1: () =>
+        {
+            set((state) => ({stage1: true}))
+        },
+
+        activateStage1: () => {
+            set((state) => ({stage1active: true}))
+        },
+
+        deleteStage1: () => 
+        {
+            set((state) => ({stage1: false}))
         }
 
 
