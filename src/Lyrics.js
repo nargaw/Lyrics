@@ -85,7 +85,7 @@ export default function Lyrics()
     }
     
     return <>
-        {console.log(stage1active)}
+        {/* {console.log(stage1active)} */}
         {stage1 && [...Array(5)].map((value, index) => 
              <DisplayLyrics num={index} key={index} mass={stage1active ? 0.1 : 0.0}/>
         )}

@@ -3,6 +3,7 @@ import Platform from './Platform.js'
 import { Physics,Debug } from '@react-three/rapier'
 import Lyrics from './Lyrics.js'
 import LoadLyrics from './LoadLyrics.js'
+import Sequence from './Sequence.js'
 import { Perf } from 'r3f-perf'
 
 export default function Experience()
@@ -13,9 +14,10 @@ export default function Experience()
         <OrbitControls makeDefault/>
         <Physics>
             {/* <Debug /> */}
-            <LoadLyrics />
             <Platform />
+            <LoadLyrics />
             <Lyrics />
+            <Sequence />
         </Physics>
     </>
 }
