@@ -17,10 +17,14 @@ export default function Lyrics()
 
     const lyrics = useLyrics(state => state.getLyrics())
     const getTime = useLyrics(state => state.timer)
-    console.log(getTime)
+    // console.log(getTime)
     const songStatus = useLyrics(state => state.songStatus)
     // console.log(songStatus)
     const getSongTime = useLyrics(state => state.getSongTime)
+    const stage1 = useLyrics(state => state.stage1)
+    const stage1active = useLyrics(state => state.stage1active)
+    const stage2 = useLyrics(state => state.stage2)
+    const stage2active = useLyrics(state => state.stage2active)
 
     useEffect(() =>
     {
@@ -44,7 +48,7 @@ export default function Lyrics()
         }
     }, [])
 
-    const DisplayLyrics = ({num, time}) => 
+    const DisplayLyrics = ({num, mass}) => 
     {
         return <>
             {/* {console.log(time)} */}
@@ -59,7 +63,8 @@ export default function Lyrics()
                     ]}
                     restitution={0.8}
                     friction={0.5}
-                    mass={0.0}
+                    mass={mass}
+                    // mass={getTime > 34 ? 0.1 : 0.0}
                 >
                     <Center>
                         <Text3D
@@ -81,34 +86,12 @@ export default function Lyrics()
     }
     
     return <>
-        {getTime > 0 && getTime <= 34 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index} time={timeRef.current} />
+        {console.log(getTime)}
+        {stage1 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index} key={index} mass={stage1active ? 0.1 : 0.0}/>
         )}
-        {getTime > 34 && getTime <= 53 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + 5} key={index + 5} time={timeRef.current} />
-        )}
-        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index + 10} time={timeRef.current} />
-        )} */}
-        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index + 15} time={timeRef.current} />
-        )} */}
-        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index + 20} time={timeRef.current} />
-        )} */}
-        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index + 25} time={timeRef.current} />
-        )} */}
-        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index + 30} time={timeRef.current} />
-        )} */}
-        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index + 35} time={timeRef.current} />
-        )} */}
-        {/* {getTime > 20 && getTime <= 40 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index} key={index + 40} time={timeRef.current} />
-        )} */}
-        
-        
+        {stage2 && [...Array(5)].map((value, index) => 
+             <DisplayLyrics num={index + 5} key={index + 5} mass={stage2active ? 0.1 : 0.0} />
+        )}    
     </>
 }
