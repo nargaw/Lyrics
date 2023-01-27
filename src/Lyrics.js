@@ -3,7 +3,7 @@ import { Text3D, Center } from "@react-three/drei"
 import useLyrics from "./stores/useLyrics.js"
 import { useFrame, addEffect } from "@react-three/fiber"
 import * as THREE from 'three'
-import { useRef, forwardRef, useEffect } from "react"
+import { useRef, useEffect } from "react"
 
 export default function Lyrics()
 {
@@ -64,7 +64,6 @@ export default function Lyrics()
                     restitution={0.8}
                     friction={0.5}
                     mass={mass}
-                    // mass={getTime > 34 ? 0.1 : 0.0}
                 >
                     <Center>
                         <Text3D

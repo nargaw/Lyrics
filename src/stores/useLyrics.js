@@ -20,17 +20,6 @@ export default create((set, get) =>
         stage2: false,
         stage2active:false,
 
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
-        // stage1: false,
 
         //get song time
         getSongTime: () => {
