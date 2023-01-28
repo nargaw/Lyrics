@@ -11,9 +11,6 @@ export default function Interface()
     const songStatus = useLyrics(state => state.songStatus)
     const getSongTime = useLyrics(state => state.getSongTime)
     const startSong = useLyrics(state => state.startSong)
-    const setStage1 = useLyrics(state => state.setStage1)
-    const activateStage1 = useLyrics(state => state.activateStage1)
-    const deleteStage1 = useLyrics(state => state.deleteStage1)
 
     const timeDisplay = (e) => 
     {
@@ -40,6 +37,10 @@ export default function Interface()
             if(time.current && elapsedTime > 0 && elapsedTime <= 242){
                 time.current.textContent = timeDisplay(elapsedTime)
                 progress.current.style.width = ((elapsedTime/241) * 100) + '%'
+            }
+            if(elapsedTime > 241)
+            {
+
             }   
         })
 
@@ -53,7 +54,7 @@ export default function Interface()
         <div className="interface">
             {songStatus === 'start' && <div className="start" onClick={startSong}>start</div> }
             {/* <div className="pause">pause</div> */}
-            {/* <div className="restart">restart</div> */}
+            {songStatus === 'restart' && <div className="restart" onClick={startSong}>restart</div>}
             <div className="song">song: le philosophe sans la barbe</div>
             <div className="artist">artist: bigflo & oli </div>
             <div id='Progress_Status'>

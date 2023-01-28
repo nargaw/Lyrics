@@ -88,6 +88,11 @@ export default create((set, get) =>
             return get().songStartTime
         },
 
+        restartSong: () =>
+        {
+            set((state) => ({songStatus: 'restart'}))
+        },
+
         setLyrics: (input) =>
         {
             set((state) => ({lyrics: input }))

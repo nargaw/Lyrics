@@ -83,7 +83,7 @@ export default function Lyrics()
                     type='kinematic'
                     key={index}
                     position={[
-                        (index / 2) - 15 ,
+                        (index / 2) - 10 ,
                         15 + pos,
                         0
                     ]}
@@ -92,17 +92,18 @@ export default function Lyrics()
                     mass={mass}
                 >
                     <Center>
+
                         <Text3D
-                            
+                            castShadow
                             key={index} 
                             font={'./MajorMonoRegular.json'}
                             size={0.25}
                             letterSpacing = {0.1}
-                            scale={[2, 2, 0.5]}
+                            scale={[2, 2, 0.2]}
                             dispose={null}
                         >
                                 {lyrics.lyrics[num].toLowerCase()[index]}
-                                
+                            <meshBasicMaterial color={ [ 1.5, 1.5, 4 ] } toneMapped={ false }/>
                         </Text3D>
                     </Center>
                 </RigidBody>
@@ -113,49 +114,46 @@ export default function Lyrics()
     return <>
         {/* {console.log(stage1active)} */}
         {stage1 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 0)} pos={index} key={index} mass={stage1active ? 0.1 : 0.0}/>
+             <DisplayLyrics num={index + (5 * 0)} pos={-index + 5} key={index} mass={stage1active ? 0.1 : 0.0}/>
         )}
         {stage2 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 1)} pos={index} key={index + 5} mass={stage2active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 1)} pos={-index + 5} key={index + 5} mass={stage2active ? 0.1 : 0.0} />
         )}
         {stage3 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 2)} pos={index} key={index + 5} mass={stage3active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 2)} pos={-index + 5} key={index + 5} mass={stage3active ? 0.1 : 0.0} />
         )}  
         {stage4 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 3)} pos={index} key={index + 5} mass={stage4active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 3)} pos={-index + 5} key={index + 5} mass={stage4active ? 0.1 : 0.0} />
         )}  
         {stage5 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 4)} pos={index} key={index + 5} mass={stage5active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 4)} pos={-index + 5} key={index + 5} mass={stage5active ? 0.1 : 0.0} />
         )}  
         {stage6 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 5)} pos={index} key={index + 5} mass={stage6active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 5)} pos={-index + 5} key={index + 5} mass={stage6active ? 0.1 : 0.0} />
         )}  
         {stage7 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 6)} pos={index} key={index + 5} mass={stage7active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 6)} pos={-index + 5} key={index + 5} mass={stage7active ? 0.1 : 0.0} />
         )}  
         {stage8 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 7)} key={index + 5} pos={index} mass={stage8active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 7)} key={index + 5} pos={-index + 5} mass={stage8active ? 0.1 : 0.0} />
         )}  
         {stage9 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 8)} key={index + 5} pos={index} mass={stage9active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 8)} key={index + 5} pos={-index + 5} mass={stage9active ? 0.1 : 0.0} />
         )}  
         {stage10 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 9)} key={index + 5} pos={index} mass={stage10active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 9)} key={index + 5} pos={-index + 5} mass={stage10active ? 0.1 : 0.0} />
         )}  
         {stage11 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 10)} key={index + 5} pos={index} mass={stage11active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + (5 * 10)} key={index + 5} pos={-index + 5} mass={stage11active ? 0.1 : 0.0} />
         )}  
-        {stage12 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 11)} key={index + 5} pos={index} mass={stage12active ? 0.1 : 0.0} />
+        {stage12 && [...Array(6)].map((value, index) => 
+             <DisplayLyrics num={index + (5 * 11)} key={index + 5} pos={-index + 5} mass={stage12active ? 0.1 : 0.0} />
         )}
         {stage13 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 12)} key={index + 5} pos={index} mass={stage13active ? 0.1 : 0.0} />
+             <DisplayLyrics num={index + 1 + (5 * 12)} key={index + 5} pos={-index + 5} mass={stage13active ? 0.1 : 0.0} />
         )}  
         {stage14 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 13)} key={index + 5} pos={index} mass={stage14active ? 0.1 : 0.0} />
-        )}  
-        {stage15 && [...Array(5)].map((value, index) => 
-             <DisplayLyrics num={index + (5 * 14)} key={index + 5} pos={index} mass={stage15active ? 0.1 : 0.0} />
-        )}        
+             <DisplayLyrics num={index + 1 + (5 * 13)} key={index + 5} pos={-index + 5} mass={stage14active ? 0.1 : 0.0} />
+        )}          
     </>
 }
