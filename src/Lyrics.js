@@ -83,7 +83,7 @@ export default function Lyrics()
                     type='kinematic'
                     key={index}
                     position={[
-                        (index / 2) - 10 ,
+                        (index / 2) - 15 ,
                         15 + pos,
                         0
                     ]}
@@ -122,7 +122,7 @@ export default function Lyrics()
         {stage3 && [...Array(5)].map((value, index) => 
              <DisplayLyrics num={index + (5 * 2)} pos={-index + 5} key={index + 5} mass={stage3active ? 0.1 : 0.0} />
         )}  
-        {stage4 && [...Array(5)].map((value, index) => 
+        {stage4 && [...Array(6)].map((value, index) => 
              <DisplayLyrics num={index + (5 * 3)} pos={-index + 5} key={index + 5} mass={stage4active ? 0.1 : 0.0} />
         )}  
         {stage5 && [...Array(5)].map((value, index) => 
