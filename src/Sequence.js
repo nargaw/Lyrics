@@ -60,7 +60,7 @@ export default function Sequence()
                 elapsedTime = Date.now() - startTime
                 elapsedTime /= 1000
                 elapsedTime = Math.round(elapsedTime)
-                console.log(elapsedTime)
+                // console.log(elapsedTime)
 
                 // if(elapsedTime >= 241)
                 // {
