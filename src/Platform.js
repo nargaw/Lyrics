@@ -50,6 +50,13 @@ export default function Platform()
                 position-z={-50}
                 receiveShadow
             />
+            <mesh 
+                geometry={platformGeometry}
+                material={platformMaterial}
+                rotation-z={-Math.PI }
+                position-z={50}
+                receiveShadow
+            />
         </RigidBody>
     </>
 }

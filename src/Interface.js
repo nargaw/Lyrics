@@ -18,6 +18,11 @@ export default function Interface()
         const s = Math.floor(e % 60).toString().padStart(2,'0')
         return m + ':' + s;
     }
+
+    const restart = () => 
+    {
+
+    }
     
     useEffect(() =>
     {
@@ -54,7 +59,7 @@ export default function Interface()
         <div className="interface">
             {songStatus === 'start' && <div className="start" onClick={startSong}>start</div> }
             {/* <div className="pause">pause</div> */}
-            {songStatus === 'restart' && <div className="restart" onClick={startSong}>restart</div>}
+            {songStatus === 'restart' && <div className="restart" onClick={window.location.reload()}>restart</div>}
             <div className="song">song: le philosophe sans la barbe</div>
             <div className="artist">artist: bigflo & oli </div>
             <div id='Progress_Status'>

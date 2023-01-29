@@ -60,7 +60,7 @@ export default function Sequence()
                 elapsedTime = Date.now() - startTime
                 elapsedTime /= 1000
                 elapsedTime = Math.round(elapsedTime)
-                // console.log(elapsedTime)
+                console.log(elapsedTime)
 
                 // if(elapsedTime >= 241)
                 // {
@@ -90,7 +90,7 @@ export default function Sequence()
                 {
                     activateStage2()
                 }
-                if(elapsedTime > 66)
+                if(elapsedTime > 64)
                 {
                     deleteStage2()
                 }
@@ -100,7 +100,7 @@ export default function Sequence()
                 {
                     setStage3()
                 }
-                if(elapsedTime > 66)
+                if(elapsedTime > 64)
                 {
                     activateStage3()
                 }
@@ -110,7 +110,7 @@ export default function Sequence()
                 }
 
                 //stage4
-                if(elapsedTime > 66)
+                if(elapsedTime > 64)
                 {
                     setStage4()
                 }
@@ -174,7 +174,7 @@ export default function Sequence()
                 {
                     activateStage8()
                 }
-                if(elapsedTime > 144)
+                if(elapsedTime > 145)
                 {
                     deleteStage8()
                 }
@@ -184,73 +184,73 @@ export default function Sequence()
                 {
                     setStage9()
                 }
-                if(elapsedTime > 144)
+                if(elapsedTime > 145)
                 {
                     activateStage9()
                 }
-                if(elapsedTime > 158)
+                if(elapsedTime > 159)
                 {
                     deleteStage9()
                 }
 
                 //stage10
-                if(elapsedTime > 144)
+                if(elapsedTime > 145)
                 {
                     setStage10()
                 }
-                if(elapsedTime > 158)
+                if(elapsedTime > 159)
                 {
                     activateStage10()
                 }
-                if(elapsedTime > 174)
+                if(elapsedTime > 173)
                 {
                     deleteStage10()
                 }
 
                 //stage11
-                if(elapsedTime > 158)
+                if(elapsedTime > 159)
                 {
                     setStage11()
                 }
-                if(elapsedTime > 174)
+                if(elapsedTime > 173)
                 {
                     activateStage11()
                 }
-                if(elapsedTime > 190)
+                if(elapsedTime > 188)
                 {
                     deleteStage11()
                 }
 
                 //stage12
-                if(elapsedTime > 174)
+                if(elapsedTime > 173)
                 {
                     setStage12()
                 }
-                if(elapsedTime > 190)
+                if(elapsedTime > 188)
                 {
                     activateStage12()
                 }
-                if(elapsedTime > 203)
+                if(elapsedTime > 200)
                 {
                     deleteStage12()
                 }
 
                 //stage13
-                if(elapsedTime > 190)
+                if(elapsedTime > 188)
                 {
                     setStage13()
                 }
-                if(elapsedTime > 203)
+                if(elapsedTime > 200)
                 {
                     activateStage13()
                 }
                 if(elapsedTime > 216)
                 {
-                    deleteStage13()
+                    deleteStage13() 
                 }
 
                 //stage14
-                if(elapsedTime > 203)
+                if(elapsedTime > 200)
                 {
                     setStage14()
                 }
@@ -261,6 +261,11 @@ export default function Sequence()
                 if(elapsedTime > 235)
                 {
                     deleteStage14()
+                }
+
+                if(elapsedTime >= 241)
+                {
+                    restartSong()
                 }
             }
         })

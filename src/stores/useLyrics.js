@@ -91,6 +91,7 @@ export default create((set, get) =>
         restartSong: () =>
         {
             set((state) => ({songStatus: 'restart'}))
+            set((state) => ({songStartTime: 0}))
         },
 
         setLyrics: (input) =>

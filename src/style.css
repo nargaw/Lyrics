@@ -45,6 +45,23 @@ body,
     border-radius: 50px;
 }
 
+.restart
+{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    /* width: 100%; */
+    color: #ffffff;
+    font-size: 20px;
+    background: #00000033;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
 .progress
 {
     width: 1%;
