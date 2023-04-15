@@ -59,6 +59,12 @@ export default create((set, get) =>
         stage15: false,
         stage15active:false,
 
+        stage16: false,
+        stage16active:false,
+
+        stage17: false,
+        stage17active:false,
+
 
         //get song time
         getSongTime: () => {
@@ -326,5 +332,34 @@ export default create((set, get) =>
             set((state) => ({stage15: false}))
         },
 
+        //stage16
+        setStage16: () =>
+        {
+            set((state) => ({stage16: true}))
+        },
+
+        activateStage16: () => {
+            set((state) => ({stage16active: true}))
+        },
+
+        deleteStage16: () => 
+        {
+            set((state) => ({stage16: false}))
+        },
+
+        //stage17
+        setStage17: () =>
+        {
+            set((state) => ({stage17: true}))
+        },
+
+        activateStage17: () => {
+            set((state) => ({stage17active: true}))
+        },
+
+        deleteStage17: () => 
+        {
+            set((state) => ({stage17: false}))
+        },
     }
 })

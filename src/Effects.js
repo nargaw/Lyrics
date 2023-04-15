@@ -8,7 +8,7 @@ export default function Effects()
             /> */}
             <Bloom
                 mipmapBlur
-                intensity={ 0.5 }
+                intensity={ 1.5 }
             />
     </EffectComposer>
 }

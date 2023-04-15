@@ -8,7 +8,7 @@ export default function Platform()
 
     const platformGeometry = new THREE.BoxGeometry(100, 200, 0.5)
     const platformMaterial = new THREE.MeshStandardMaterial({
-        color: '#444444'
+        color: '#444444', visible: false
     })
     const platform = useRef()
 
@@ -22,6 +22,7 @@ export default function Platform()
             colliders="cuboid"
             restitution={0.2}
             friction={1}
+            position={[0, 1.5, 0]}
         >
             <mesh 
                 geometry={platformGeometry}

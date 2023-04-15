@@ -6,7 +6,7 @@ export default function LoadLyrics()
     const changeStatus = useLyrics(state => state.changeStatus)
     const pushLyrics = useLyrics(state => state.setLyrics)
     const getLyrics = async () => {
-        const response = await fetch('./lephilosophelyrics.json')
+        const response = await fetch('./SoGoodLooking.json')
         const result = await response.json()
         pushLyrics(result)
         changeStatus()
